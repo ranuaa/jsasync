@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="judul"></h1>
+
+    <script>
+
+        function judul(title) {
+            document.getElementById("judul").innerHTML = "Hallo Nama saya " + title;
+        }
+
+        function namaBarang (barang) {
+            return barang
+        }
+
+
+        let janji = new Promise((resolve,reject) => {
+            let pilihanBarang = namaBarang("Garpu");
+
+            if (pilihanBarang == "Sendok") {
+                resolve("Anda memilih brang " + " " +pilihanBarang);
+                
+            } else {
+                reject("Barang yang anda pilih tidak tersedia ")
+            }
+
+        });
+
+        // janji.then(
+        //     function(value){ document.getElementById("judul").innerHTML = value},
+        //     function(error){document.getElementById("judul").innerHTML = error})
+        janji.then(
+            value => document.getElementById("judul").innerHTML = value,
+            error => document.getElementById("judul").innerHTML = error
+            )
+
+        judul(namaBarang("Ranu"));
+
+        
+            
+
+    </script>
+</body>
+</html>
